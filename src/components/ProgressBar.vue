@@ -8,10 +8,10 @@
           aria-valuenow="70"
           aria-valuemin="0"
           aria-valuemax="100"
-          style="width:20%;"
+          :style="{width: (totalQuotes*10) + '%'}"
         >
           <span style="font-size:16px">
-            <b>10 / 10</b>
+            <b>{{ totalQuotes }} / 10</b>
           </span>
         </div>
       </div>
@@ -19,5 +19,22 @@
   </div>
 </template>
 <script>
-export default {};
+import { busEvent } from "../main";
+export default {
+  data: function() {
+    return {
+      totalQuotes: 0
+    };
+  },
+  created() {
+    busEvent.$on("newQuoteAdded", quote => {
+      if (this.totalQuotes <= 9) {
+        this.totalQuotes++;
+      }
+    });
+    busEvent.$on("deleteQuote", quote => {
+      this.totalQuotes--;
+    });
+  }
+};
 </script>

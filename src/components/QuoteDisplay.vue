@@ -19,7 +19,11 @@ export default {
   },
   created() {
     busEvent.$on("newQuoteAdded", quote => {
-      this.quotes.push(quote);
+      if (this.quotes.length <= 9) {
+        this.quotes.push(quote);
+      } else {
+        alert("Too many Quotes! Delete some before adding new ones!");
+      }
     });
     busEvent.$on("deleteQuote", id => {
       this.quotes.splice(id, 1);
