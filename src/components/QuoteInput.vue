@@ -23,6 +23,7 @@ export default {
   methods: {
     addQuote() {
       busEvent.$emit("newQuoteAdded", this.quoteInput);
+      this.quoteInput = "";
     }
   }
 };
