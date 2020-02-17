@@ -1,10 +1,12 @@
 <template>
   <div class="panel panel-default card div_hover">
-    <div class="panel-body">Just a quote to start with something!</div>
+    <div class="panel-body">{{ quote }}</div>
   </div>
 </template>
 <script>
-export default {};
+export default {
+  props: ["quote"]
+};
 </script>
 <style scoped>
 .card {

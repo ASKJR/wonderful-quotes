@@ -2,7 +2,7 @@
   <div class="container">
     <app-title></app-title>
     <app-progress-bar></app-progress-bar>
-    <app-quote-inpute></app-quote-inpute>
+    <app-quote-input></app-quote-input>
     <app-quotes-display></app-quotes-display>
     <app-info-alert></app-info-alert>
   </div>
@@ -18,7 +18,7 @@ export default {
   components: {
     appProgressBar: ProgressBar,
     appTitle: Title,
-    appQuoteInpute: QuoteInput,
+    appQuoteInput: QuoteInput,
     appQuotesDisplay: QuoteDisplay,
     appInfoAlert: appInfoAlert
   }
