@@ -1,7 +1,7 @@
 <template>
   <div class="row">
     <div class="col-xs-12">
-      <app-quote v-for="(quote, index) in quotes" :key="index" :quote="quote"></app-quote>
+      <app-quote v-for="(quote, index) in quotes" :key="index" :quote="quote" :index="index"></app-quote>
     </div>
   </div>
 </template>
@@ -20,6 +20,9 @@ export default {
   created() {
     busEvent.$on("newQuoteAdded", quote => {
       this.quotes.push(quote);
+    });
+    busEvent.$on("deleteQuote", id => {
+      this.quotes.splice(id, 1);
     });
   }
 };

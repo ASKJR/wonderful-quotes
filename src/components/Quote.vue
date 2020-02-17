@@ -1,11 +1,17 @@
 <template>
   <div class="panel panel-default card div_hover">
-    <div class="panel-body">{{ quote }}</div>
+    <div class="panel-body" @click="deleteQuote">{{ quote }}</div>
   </div>
 </template>
 <script>
+import { busEvent } from "../main";
 export default {
-  props: ["quote"]
+  props: ["quote", "index"],
+  methods: {
+    deleteQuote() {
+      busEvent.$emit("deleteQuote", this.index);
+    }
+  }
 };
 </script>
 <style scoped>
